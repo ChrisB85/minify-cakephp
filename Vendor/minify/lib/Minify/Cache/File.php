@@ -11,6 +11,9 @@ class Minify_Cache_File {
         if (! $path) {
             $path = self::tmp();
         }
+        if (!file_exists($path)) {
+            mkdir($path, 0755, true);
+        }
         $this->_locking = $fileLocking;
         $this->_path = $path;
     }
